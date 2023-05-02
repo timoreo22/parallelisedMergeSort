@@ -1,7 +1,17 @@
 TODO:
-[] - Make class to handle arrays at each later
+[] - Make class to handle arrays at each layer
 [] - Implement array splitting
 [] - Implement array combining
 [] - Complete mergesort
 [] - Parallelize each layers
 [] - FINISH
+
+Planning:
+[1] Layer 0 = base array
+[2] Layer 1 = 2 sub arrays of Layer 0
+[4] Layer 2 = 2 sub arrays of each Layer 1
+[8] Layer 3 = 2 sub arrays of each Layer 2 
+...
+[2^N] Layer [N] = 2 sub arrays of 1 element each
+
+Class would need: 2 instances of itself, definied when MAIN ARRAY is not a single element, pointer to upper class (to alter/Go back to), and indicator if sorted or not.
