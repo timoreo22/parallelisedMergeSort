@@ -1,0 +1,7 @@
+TODO:
+[] - Make class to handle arrays at each later
+[] - Implement array splitting
+[] - Implement array combining
+[] - Complete mergesort
+[] - Parallelize each layers
+[] - FINISH
