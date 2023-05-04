@@ -15,3 +15,5 @@ Planning:
 [2^N] Layer [N] = 2 sub arrays of 1 element each
 
 Class would need: 2 instances of itself, definied when MAIN ARRAY is not a single element, pointer to upper class (to alter/Go back to), and indicator if sorted or not.
+
+PLAN: Use a queue and a list to manage jobs.

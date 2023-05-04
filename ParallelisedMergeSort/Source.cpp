@@ -23,18 +23,6 @@ int main() {
 	//Display whats in the array...
 
 	displayArray(myArray, size);
-	/* for (int i = 0; i < size; ++i)
-	{
-		std::cout << "Item In Element " << i << " of the array = : " << myArray[i] << std::endl;
-	}
-	
-	std::cout << "[" << myArray[0];
-	for (int i = 1; i < size; ++i)
-	{
-		std::cout << "," << myArray[i];
-	}
-	std::cout << "]";
-	*/
 
 	//Delete the array
 	delete[] myArray;
