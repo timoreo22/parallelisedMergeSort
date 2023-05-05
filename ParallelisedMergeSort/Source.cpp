@@ -28,7 +28,7 @@ int main() {
 	}
 
 	// This is a frankly weird way to organise a mergesort but it'll be in parallel.
-	// Excuse the mix of capitalised and non-capitalised words. It's a thing I do when thinking with myself.
+	// Excuse the mix of capitalised and non-capitalised words, It's a thing I do when thinking with myself.
 
 	/* DEFINE STACK HERE, GIVE EACH ARRAY A LAYER NUMBER.
 	* 
