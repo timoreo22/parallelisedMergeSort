@@ -1,16 +1,28 @@
 #pragma once
 class Layer
 {
-	// Vars
-	Layer* ptrParent;
-	Layer* ptrChildren[2];
 
+private:
+
+	// Vars
+	Layer* ptrLeftSplit = nullptr; // These will be overwritten as subsubarrays are made.
+	Layer* ptrRightSplit = nullptr;
+	int* subArray; // Size will be defined in constructor.
+	int arrSize;
+	int layerNum;
+
+public:
+
+	// Constructor & Destructor
+	Layer(int*, int, int);
+	~Layer();
 
 	// Functions
-	Layer();
-	~Layer();
-	void split();
-
+	void split(); 
+	void combine(); // This should only be called on nodes with children to combine. 
+	int getLayerNum();
+	int getSize();
+	int* getArrayPointer();
 
 };
 

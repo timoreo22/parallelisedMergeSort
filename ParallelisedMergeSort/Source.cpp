@@ -2,6 +2,8 @@
 #include<array>
 #include <cmath>
 
+#include "Layer.h"
+
 void displayArray(int*, int);
 
 int main() {
@@ -55,6 +57,12 @@ int main() {
 
 	// Display array contents in a nice way
 	displayArray(myArray, size);
+
+	std::cout << "\nObject array: ";
+
+	// MAKE NEW ARRAY OBJECT TEST
+	Layer objArray(myArray, size, 0);
+	displayArray(objArray.getArrayPointer(), objArray.getSize());
 
 	//Delete the array
 	delete[] myArray;
