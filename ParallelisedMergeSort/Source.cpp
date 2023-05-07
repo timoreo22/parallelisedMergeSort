@@ -3,6 +3,7 @@
 #include <cmath>
 #include <list>
 #include <stack>
+#include <memory>
 
 #include "Layer.h"
 
@@ -55,13 +56,13 @@ int main() {
 	*/
 
 	// "Tasks" are just pointers to objects.
-	std::list<Layer*> newTasks;
-	std::list<Layer*> currentTasks;
-	std::stack<Layer*> allTasks;
+	std::list<std::shared_ptr<Layer>> newTasks;
+	std::list<std::shared_ptr<Layer>> currentTasks;
+	std::stack<std::shared_ptr<Layer>> allTasks;
 
 	// MAKE NEW ARRAY OBJECT TEST
-	Layer objArray(myArray, size, 0);
-	allTasks.push(&objArray);
+	auto objArray = std::make_shared<Layer>(myArray, size, 0);
+	allTasks.push(objArray);
 
 	// DEBUG outputs memory address
 	std::cout << allTasks.top() << std::endl;
@@ -71,12 +72,12 @@ int main() {
 	std::cout << "\n";
 
 	// Display object in list test
-	displayArray(objArray.getArrayPointer(), objArray.getSize());
+	displayArray(objArray->getArrayPointer(), objArray->getSize());
 
 
-	objArray.split(&newTasks);
+	objArray->split(newTasks);
 
-	int listSize = newTasks.size();
+	size_t listSize = newTasks.size();
 
 	std::cout << "Size of newtasks: " << listSize << std::endl;
 	std::cout << "Address of newtasks: " << newTasks.front() << std::endl;

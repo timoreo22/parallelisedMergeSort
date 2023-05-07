@@ -21,7 +21,7 @@ Layer::~Layer() {
 
 }
 
-void Layer::split(std::list<Layer*>* ptrList) {
+void Layer::split(std::list<std::shared_ptr<Layer>>& ptrList) {
 	// This will turn 1 array into 2 smaller halves, and copy them onto the new task list.
 	// if the array is size one, DO NOT EXECUTE.
 	if (arrSize != 1) {
@@ -30,19 +30,18 @@ void Layer::split(std::list<Layer*>* ptrList) {
 		int rightSplit = (arrSize - leftSplit); // Can't assume halves are even.
 
 		// Creation and recognition of sub arrays
-		Layer leftArr(subArray, leftSplit, layerNum + 1);
-		Layer rightArr(subArray + leftSplit, rightSplit, layerNum + 1);
-
-		ptrLeftSplit = &leftArr;
-		ptrRightSplit = &rightArr;
+		std::shared_ptr<Layer> leftArr = std::make_shared<Layer>(subArray, leftSplit, layerNum + 1);
+		std::shared_ptr<Layer> rightArr = std::make_shared<Layer>(subArray + leftSplit, rightSplit, layerNum + 1);
+		ptrLeftSplit = leftArr;
+		ptrRightSplit = rightArr;
 
 		/* CRITCAL SECTION START 
 		* This is due to the fact the list pointer might change.
 		*/
 
 		// Adding to tasks list
-		ptrList->push_back(ptrLeftSplit);
-		ptrList->push_back(ptrRightSplit);
+		ptrList.push_back(ptrLeftSplit);
+		ptrList.push_back(ptrRightSplit);
 
 		/* CRITCAL SECTION END */
 	}
