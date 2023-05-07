@@ -1,18 +1,15 @@
 #include <list>
+#include <cstring>
 #include "Layer.h"
 
-Layer::Layer(int* arr, int daSize, int layer) {
+Layer::Layer(const int* arr, int daSize, int layer) {
 
 	// Copy variables into object class, and define new array.
 	arrSize = daSize;
 	layerNum = layer;
 
 	subArray = new int[daSize];
-
-	for (int i = 0; i < arrSize; i++) {
-		subArray[i] = arr[i];
-	}
-
+    memcpy(subArray, arr, arrSize);
 }
 
 Layer::~Layer() {

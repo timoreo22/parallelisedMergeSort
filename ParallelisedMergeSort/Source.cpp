@@ -1,9 +1,9 @@
 #include <iostream>
 #include<array>
-#include <cmath>
 #include <list>
 #include <stack>
 #include <memory>
+#include <random>
 
 #include "Layer.h"
 
@@ -27,9 +27,13 @@ int main() {
 	int* myArray = new int[size];
 
 	//Populate the array with whatever you like..
+    std::random_device rd;
+    std::default_random_engine generator(rd());
+    std::uniform_int_distribution<int> distribution(0,100);
+
 	for (int i = 0; i < size; ++i)
 	{
-		myArray[i] = rand() % 100;
+		myArray[i] = distribution(generator);
 	}
 
 	// This is a frankly weird way to organise a mergesort but it'll be in parallel.

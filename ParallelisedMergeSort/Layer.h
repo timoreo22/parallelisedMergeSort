@@ -15,7 +15,7 @@ private:
 public:
 
 	// Constructor & Destructor
-	Layer(int*, int, int);
+	Layer(const int*, int, int);
 	~Layer();
 
 	// Functions
