@@ -1,10 +1,10 @@
 TODO:
-[] - Make class to handle arrays at each layer
-[] - Implement array splitting
-[] - Implement array combining
-[] - Complete mergesort
-[] - Parallelize each layers
-[] - FINISH
+[X] - Make class to handle arrays at each layer
+[/] - Implement array splitting
+[ ] - Implement array combining
+[ ] - Complete mergesort
+[ ] - Parallelize each layers
+[ ] - FINISH
 
 Planning:
 [1] Layer 0 = base array

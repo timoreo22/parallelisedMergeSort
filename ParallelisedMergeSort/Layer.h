@@ -18,7 +18,7 @@ public:
 	~Layer();
 
 	// Functions
-	void split(); 
+	void split(std::list<Layer*>*); 
 	void combine(); // This should only be called on nodes with children to combine. 
 	int getLayerNum();
 	int getSize();

@@ -1,6 +1,8 @@
 #include <iostream>
 #include<array>
 #include <cmath>
+#include <list>
+#include <stack>
 
 #include "Layer.h"
 
@@ -52,18 +54,50 @@ int main() {
 	*	Once tasks have run out (the array sorted): Kill/Merge/Join threads into main and display sorted result.
 	*/
 
-
-
-
-	// Display array contents in a nice way
-	displayArray(myArray, size);
-
-	std::cout << "\nObject array: ";
+	// "Tasks" are just pointers to objects.
+	std::list<Layer*> newTasks;
+	std::list<Layer*> currentTasks;
+	std::stack<Layer*> allTasks;
 
 	// MAKE NEW ARRAY OBJECT TEST
 	Layer objArray(myArray, size, 0);
+	allTasks.push(&objArray);
+
+	// DEBUG outputs memory address
+	std::cout << allTasks.top() << std::endl;
+
+	// Hopefully should match the bottom
+	displayArray(allTasks.top()->getArrayPointer(), allTasks.top()->getSize());
+	std::cout << "\n";
+
+	// Display object in list test
 	displayArray(objArray.getArrayPointer(), objArray.getSize());
 
+
+	objArray.split(&newTasks);
+
+	int listSize = newTasks.size();
+
+	std::cout << "Size of newtasks: " << listSize << std::endl;
+	std::cout << "Address of newtasks: " << newTasks.front() << std::endl;
+	std::cout << "Address of newtasks first subarray: " << newTasks.front()->getArrayPointer() << std::endl;
+
+
+	if (listSize != 0) {
+
+		std::cout << "\nTest of outputting newTasks list\n";
+
+		// Fancy output, this code would not be included in the final version.
+		for (int i = 0; i < listSize; i++) {
+
+			displayArray(newTasks.front()->getArrayPointer(), newTasks.front()->getSize());
+			if (i != newTasks.size() - 1) {
+				std::cout << ", ";
+			}
+			newTasks.pop_front();
+
+		}
+	}
 	//Delete the array
 	delete[] myArray;
 
